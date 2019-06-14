@@ -1,4 +1,4 @@
-##Sequencer Output to Diversity Analysis (SODA) [2nd Half]
+# Sequencer Output to Diversity Analysis (SODA) [2nd Half]
 
 ### Author:
 Ruben Rodriguez <br>
