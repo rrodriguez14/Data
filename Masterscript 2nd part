@@ -1,79 +1,80 @@
-
+source /u/local/Modules/default/init/bash
+module load python/anaconda2
+source activate qiime2-2019.1
   
-  ########
+
+echo "Analyzing Alpha diversity and creating visuals"
  
- echo "Analyzing Alpha diversity and creating visuals"
- 
- qiime diversity alpha-rarefaction \
-  --i-table ${Table}/table.qza \
+qiime diversity alpha-rarefaction \
+  --i-table ${Tab}/table.qza \
   --i-phylogeny ${Rooted}/rooted-tree.qza \
   --p-max-depth 1103 \
   --m-metadata-file ${Met} \
   --o-visualization ${Vis}/alpha-rarefaction.qzv
   
- echo "Making directory called taxonomy"
+echo "Making directory called taxonomy"
   
- mkdir taxonomy
+mkdir taxonomy
   
- echo "Analyxing taxonomy of samples using classifier.qza feature and creating visuals"
+echo "Analyxing taxonomy of samples using classifier.qza feature and creating visuals"
  
- qiime feature-classifier classify-sklearn \
+qiime feature-classifier classify-sklearn \
   --i-classifier gg-13-8-99-515-806-nb-classifier.qza \
   --i-reads rep-seqs.qza \
   --o-classification taxonomy.qza
  
- qiime metadata tabulate \
+qiime metadata tabulate \
   --m-input-file taxonomy.qza \
   --o-visualization ${Vis}/taxonomy.qzv
   
- qiime taxa barplot \
+qiime taxa barplot \
   --i-table ${Tab}/table.qza \
   --i-taxonomy taxonomy.qza \
   --m-metadata-file ${Met}/sample-metadata.tsv \
   --o-visualization ${Vis}/taxa-bar-plots.qzv
   
- echo "Making directories called gut-table, and comp-gut-table"
+echo "Making directories called gut-table, and comp-gut-table"
  
- mkdir gut-table
- mkdir comp-gut-table
+mkdir gut-table
+mkdir comp-gut-table
  
- echo "Analyzing abundance in sample subjects using composition artifact and creating visualization"
+echo "Analyzing abundance in sample subjects using composition artifact and creating visualization"
  
- qiime feature-table filter-samples \
+qiime feature-table filter-samples \
   --i-table ${Tab}/table.qza \
   --m-metadata-file ${Met} \
   --p-where "BodySite='gut'" \
   --o-filtered-table gut-table.qza
   
- qiime composition add-pseudocount \
-  --i-table gut-table.qza \
+qiime composition add-pseudocount \
+  --i-table ${Tab}/gut-table.qza \
   --o-composition-table comp-gut-table.qza
   
- qiime composition ancom \
+qiime composition ancom \
   --i-table comp-gut-table.qza \
   --m-metadata-file ${Met} \
   --m-metadata-column Subject \
   --o-visualization ${Vis}/ancom-Subject.qzv
   
-  echo "Making directories called gut-table-16 and comp-gut-table-16"
+echo "Making directories called gut-table-16 and comp-gut-table-16"
   
-  mkdir gut-table-16
-  mkdir comp-gut-table-16
+mkdir gut-table-16
+mkdir comp-gut-table-16
   
-  echo "Analyzing abundance at specific taxonomy and creating visualization"
+echo "Analyzing abundance at specific taxonomy and creating visualization"
   
-  qiime taxa collapse \
-  --i-table gut-table.qza \
+qiime taxa collapse \
+  --i-table ${Tab}/gut-table.qza \
   --i-taxonomy taxonomy.qza \
   --p-level 6 \
   --o-collapsed-table gut-table-l6.qza
 
 qiime composition add-pseudocount \
-  --i-table gut-table-l6.qza \
+  --i-table ${Tab}/gut-table-l6.qza \
   --o-composition-table comp-gut-table-l6.qza
 
 qiime composition ancom \
-  --i-table comp-gut-table-l6.qza \
+  --i-table ${Tab}/comp-gut-table-l6.qza \
   --m-metadata-file ${Met} \
   --m-metadata-column Subject \
   --o-visualization ${Vis}/l6-ancom-Subject.qzv
