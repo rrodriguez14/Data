@@ -9,3 +9,9 @@ rubenrr7@outlook.com
 2. Explore sample composition using taxonomic classifier
 3. Generate interactive taxonomic sample plots 
 4. Differentiate sample group abundances using ANCOM
+
+### Dependencies:
+- Hoffman
+- Python
+- Quiime 2 (can be loaded into terminal using python anaconda2
+- classifier.qza
