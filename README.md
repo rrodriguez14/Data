@@ -42,10 +42,10 @@ sh master.sh -i emp-single-end-sequences/ -o output-emp-single-end-sequences -m 
 The following directories are expected to be outputs in one master directory:
 
 table <br>
-└── gut-table.qza
-└── comp-gut-table.qza
-└── gut-table-l6.qza
-└── comp-gut-table-l6.qza
+└──  gut-table.qza
+└──  comp-gut-table.qza
+└──  gut-table-l6.qza
+└──  comp-gut-table-l6.qza
 
 taxonomy <br>
 └── taxonomy.qza
