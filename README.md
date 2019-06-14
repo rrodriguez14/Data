@@ -43,6 +43,7 @@ The following directories are expected to be outputs in one master directory:
 
 table <br>
 └──  gut-table.qza
+
 └──  comp-gut-table.qza
 └──  gut-table-l6.qza
 └──  comp-gut-table-l6.qza
