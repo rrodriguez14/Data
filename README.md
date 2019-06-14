@@ -13,7 +13,7 @@ rubenrr7@outlook.com
 ### Dependencies:
 - Hoffman
 - Python
-- Quiime 2 (can be loaded into terminal using python anaconda2
+- Quiime 2 (can be loaded into terminal using python anaconda2)
 - classifier.qza
 
 ### Instructions:
