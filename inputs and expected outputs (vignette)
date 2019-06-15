@@ -1,0 +1,23 @@
+#############
+Inputs
+#############
+
+>alpha-rarefaction.qzv
+>taxonomy.qza
+>gg-13-8-99-515-806-nb-classifier.qza
+>gut-table.qza
+>comp-gut-table.qza
+>gut-table-l6.qza
+>comp-gut-table-l6.qza
+
+
+############
+Expected outputs
+############
+
+
+>alpha-rarefaction.qzv
+>taxonomy.qzv
+>taxa-bar-plots.qzv
+>ancom-Subject.qzv
+>l6-ancom-Subject.qzv
